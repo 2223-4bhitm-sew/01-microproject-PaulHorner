@@ -1,9 +1,12 @@
 = Cld Hotel
 
-[plantuml, abc]
+[plantuml, cld Hotel]
 ----
 @startuml
 
+left to right direction
+
+@startuml
 left to right direction
 
 class customer {
@@ -14,7 +17,7 @@ class customer {
     int creditCardNumber
 }
 
-class reservation {
+class booking {
     int reservatioNumber
     double Price
     boolean isPaid
@@ -25,8 +28,7 @@ class room {
     int numberOfbeds
 }
 
-reservation *-- customer
-customer *-- room
-
+booking --> customer
+room <-- booking
 @enduml
 ----
