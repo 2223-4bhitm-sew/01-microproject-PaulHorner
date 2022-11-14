@@ -1,37 +1,66 @@
 package at.htl.entity;
 
+
+import javax.persistence.*;
+
+@NamedQueries({
+        @NamedQuery(
+                name = "Person.findAll",
+                query = "select p from Person p"
+        ),
+        @NamedQuery(
+                name = "Person.findByFirstNameAndLastName",
+                query="select p from Person p where p.firstName like :FIRST and p.lastName like :LAST"
+        )
+})
+@Entity
+@Table(name = "MY_CUSTOEMR")
 public class Customer {
 
-    private Long customerNumber;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "P_ID")
+    private Long id;
 
-    private String name;
+    @Column(name = "P_FIRST_NAME")
+    private String firstName;
+
+    @Column(name="P_LAST_NAME")
+    private String lastName;
 
     public Customer() {
     }
 
-    public Customer(String name) {
-        this.name  = name;
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public Long getCustomerNumber() {
-        return customerNumber;
+    public Long getId() {
+        return id;
     }
 
-    public void setCustomerNumber(Long customerNumber) {
-        this.customerNumber = customerNumber;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override
     public String toString() {
-        return String.format("%s", name);
+        return String.format("%s %s", firstName, lastName);
     }
 }
-
