@@ -59,7 +59,6 @@ public class CustomerResource {
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(Customer person, @Context UriInfo uriInfo) throws Exception {
-        //persons.add(person);
         Customer saved = customerRepository.save(person);
         logger.info(person.getLastName() + " wird gespeichert");
         URI location = uriInfo
@@ -82,14 +81,7 @@ public class CustomerResource {
                 .findFirst()
                 .get();
         logger.info(foundPerson.getFirstName());
-        //Person foundPerson = persons.get(0);
-        //assert foundPerson != null;
         foundPerson.setFirstName("updated");
-        //        if (foundPerson.isEmpty()) {
-        //            logger.info("is empty");
-        //        } else {
-        //            logger.info("is not empty");
-        //        }
         return Response.ok(foundPerson).build();
     }
 
