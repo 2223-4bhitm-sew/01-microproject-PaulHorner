@@ -1,0 +1,12 @@
+= Hotel Mikroproject
+
+=== backend
+* Entitäten in entity package erstellt (Customer)
+* Endpoint für die CRUD Funktionalität
+eines Kunden (CustomerResource)
+* Repository zwischenschicht in CustomerRepository
+
+
+=== asciidocs
+* Datenmodell
+
