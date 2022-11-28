@@ -3,10 +3,6 @@
 [plantuml, cld Hotel]
 ----
 @startuml
-
-left to right direction
-
-@startuml
 left to right direction
 
 class customer {
